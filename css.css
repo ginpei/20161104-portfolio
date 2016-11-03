@@ -52,9 +52,6 @@ figcaption {
 	max-height: 100vw;
 	overflow: hidden;
 	position: relative;
-	/* color: #fff; */
-	/* padding-bottom: 10em; */
-	/* padding-top: 1em; */
 }
 .g-header-background {
 	background-image: url("image/shuchu-lines.png");
