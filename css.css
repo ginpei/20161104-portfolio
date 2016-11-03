@@ -45,9 +45,8 @@ figcaption {
  */
 .g-header {
 	background-color: #006;
-	box-shadow:
-		0 0 200px rgba(0,0,0,0.5) inset,
-		0 5px 10px rgba(0,0,0,0.2);
+	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	background-image: radial-gradient(transparent, transparent 60%, rgba(0,0,0,0.5));
 	height: 400px;
 	max-height: 100vw;
 	overflow: hidden;
@@ -97,7 +96,7 @@ figcaption {
 .g-footer {
 	border-top: 1px #eee solid;
 	background-color: #f9f9f9;
-	box-shadow: 0 0 10em rgba(0,0,0,0.05) inset;
+	background-image: radial-gradient(transparent, transparent 60%, rgba(0,0,0,0.1));
 	margin-top: 5rem;
 	padding-bottom: 3rem;
 	padding-top: 3rem;
@@ -156,7 +155,7 @@ figcaption {
 	background-color: #fff;
 	border: 1px solid #eee;
 	border-radius: 4px;
-	box-shadow: 0 0 10em rgba(0,0,0,0.05) inset;
+	background-image: radial-gradient(transparent, transparent 60%, rgba(0,0,0,0.1));
 	box-sizing: border-box;
 	height: 100%;
 	left: 0;
