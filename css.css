@@ -1,0 +1,316 @@
+/**
+ * ----------------------------------------------------------------
+ * Global components
+ */
+
+/**
+ * General
+ */
+body {
+	background-color: #fff;
+	color: #333;
+	font-family: "Myriad Set Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	-moz-font-feature-settings: 'liga', 'kern';
+	font-feature-settings: 'liga', 'kern';
+	font-size: 18px;
+	font-style: normal;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	font-synthesis: none;
+	font-weight: 200;
+	letter-spacing: 0.05em;
+	line-height: 1.4446;
+	text-rendering: optimizeLegibility;
+}
+figure {
+	margin: 1em;
+}
+@media all and (max-width: 349px) {
+	figure {
+		width: calc(100% - 2em);
+	}
+}
+figcaption {
+	letter-spacing: 0;
+}
+
+/**
+ * Global structures
+ *
+ * body
+ * + header.g-header
+ * + .g-body
+ * + footer.g-footer
+ */
+.g-header {
+	background-color: #006;
+	box-shadow:
+		0 0 200px rgba(0,0,0,0.5) inset,
+		0 5px 10px rgba(0,0,0,0.2);
+	height: 400px;
+	max-height: 100vw;
+	overflow: hidden;
+	position: relative;
+	/* color: #fff; */
+	/* padding-bottom: 10em; */
+	/* padding-top: 1em; */
+}
+.g-header-background {
+	background-image: url("image/shuchu-lines.png");
+	background-position: center;
+	background-size: 100%;
+	display: none;
+	height: 150vw;
+	left: -25vw;
+	opacity: 0.5;
+	position: absolute;
+	top: calc(50% - 75vw);
+	width: 150vw;
+}
+.g-header-icon-wrapper {
+	background-color: #fff;
+	border-radius: 8px;
+	height: 200px;
+	left: calc(50% - 100px);
+	margin: auto;
+	position: absolute;
+	top: calc(50% - 100px);
+	width: 200px;
+}
+.g-header-icon-image {
+	height: 100%;
+	width: 100%;
+}
+.g-header:focus,
+.g-header:hover {
+	background-color: #fff;
+}
+.g-header:focus .g-header-background,
+.g-header:hover .g-header-background {
+	animation: g-header-rotate 8s linear infinite;
+	display: block;
+}
+.g-header:focus .g-header-icon-wrapper,
+.g-header:hover .g-header-icon-wrapper {
+	background-color: transparent;
+}
+.g-body {
+}
+.g-footer {
+	border-top: 1px #eee solid;
+	background-color: #f9f9f9;
+	box-shadow: 0 0 10em rgba(0,0,0,0.05) inset;
+	margin-top: 5rem;
+	padding-bottom: 3rem;
+	padding-top: 3rem;
+}
+
+/**
+ * Section
+ *
+ * section.g-section
+ * + header.g-section-header
+ * | + h2.g-section-heading
+ * + .g-section-body
+ */
+.g-section {
+}
+.g-section-header {
+}
+.g-section-heading {
+	font-weight: bold;
+}
+
+/**
+ * ----------------------------------------------------------------
+ * UI Components
+ */
+
+/**
+ * Flip box UI.
+ * Width and height should be set to `.flipBox`.
+ *
+ * section.flipBox
+ * + header.flipBox-surface.flipBox-surface-front
+ * | + h3.flipBox-caption
+ * + .flipBox-surface.flipBox-surface-back
+ *   + (contents)
+ */
+.flipBox {
+	display: inline-block;
+	font-size: 14px;
+	margin: 5px;
+	text-align: left;
+	position: relative;
+	transform-style: preserve-3d;
+	transform: perspective(500px) rotateY(0);
+	transition: transform 800ms;
+	vertical-align: top;
+	z-index: 1;  /* leave from rendering involving during animation */
+}
+.flipBox:hover {
+	cursor: pointer;
+}
+.flipBox--active {
+	transform: perspective(500px) rotateY(180deg);
+}
+.flipBox-surface {
+	background-color: #fff;
+	border: 1px solid #eee;
+	border-radius: 4px;
+	box-shadow: 0 0 10em rgba(0,0,0,0.05) inset;
+	box-sizing: border-box;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.flipBox-surface-front {
+	background-size: cover;
+	margin-bottom: -100%;
+}
+.flipBox-surface-back {
+	overflow: hidden;
+	padding: 1em;
+	transform: rotateY(180deg) translateZ(0.1px);
+}
+.flipBox--active .flipBox-surface-front {
+}
+.flipBox--active .flipBox-surface-back {
+}
+.flipBox-caption {
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 4px 4px 0 0;
+	color: #fff;
+	font-size: 1em;
+	padding: 1em;
+	transition: background-color 300ms;
+	margin: 0;
+}
+.flipBox:hover .flipBox-caption {
+	background-color: rgba(0,0,0,0.7);
+	text-decoration: underline;
+}
+.flipBox-title {
+	font-size: 2em;
+	margin: 0 0 1em;
+}
+
+/**
+ * Wrapper for flip boxes.
+ *
+ * .flipBox-wrapper
+ * + section.flipBox
+ */
+.flipBox {
+	font-size: 14px;
+	height: 300px;
+	letter-spacing: 0.05em;
+	width: 300px;
+}
+.flipBox-wrapper {
+	font-size: 0;
+	letter-spacing: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+}
+@media all and (max-width: 349px) {
+	.flipBox {
+		height: 200px;
+		margin-bottom: 1em;
+		margin-left: 0;
+		margin-right: 0;
+		width: 200px;
+	}
+	.flipBox-wrapper {
+		padding: 0;
+		width: 200px;
+	}
+}
+@media all and (min-width: 350px) {
+	.flipBox-wrapper {
+		width: 300px;
+	}
+}
+@media all and (min-width: 640px) {
+	.flipBox-wrapper {
+		width: 620px;
+	}
+}
+@media all and (min-width: 1000px) {
+	.flipBox-wrapper {
+		width: 931px;
+	}
+}
+
+/**
+ * ----------------------------------------------------------------
+ * Specific sections
+ */
+
+/**
+ * About me
+ */
+#about {
+}
+#about .g-section-header {
+}
+.about-myFace-imageWrapper {
+}
+.about-myFace-image {
+	border-radius: 4px;
+	width: 100%;
+}
+.about-myFace-image-normal {
+	display: inline-block;
+}
+.about-myFace-image-great {
+	animation: myFace-shaking 50ms infinite;
+	display: none;
+	transform: translate(0px, 0px);
+}
+.about-myFace-imageWrapper:focus .about-myFace-image-normal,
+.about-myFace-imageWrapper:hover .about-myFace-image-normal {
+	display: none;
+}
+.about-myFace-imageWrapper:focus .about-myFace-image-great,
+.about-myFace-imageWrapper:hover .about-myFace-image-great {
+	display: inline-block;
+}
+
+/**
+ * Recent Works
+ */
+#works {
+}
+#works .g-section-header {
+}
+
+/**
+ * Misc
+ */
+.unmarkedList {
+	list-style-type: none;
+	padding: 0;
+}
+.icon {
+	display: inline-block;
+	height: 0.8em;
+	width: 0.8em;
+}
+
+@keyframes g-header-rotate {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+@keyframes  myFace-shaking {
+	0% { transform: translate(0px, 0px); }
+	20% { transform: translate(2px, -4px); }
+	40% { transform: translate(-4px, -4px); }
+	60% { transform: translate(-3px, 2px); }
+	80% { transform: translate(2px, 3px); }
+	100% { transform: translate(-3px, -4px); }
+}

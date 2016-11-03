@@ -1,0 +1,13 @@
+{
+  "private": "true",
+  "scripts": {
+    "lint_js": "eslint js.js",
+    "start": "npm run lint_js && npm run watch_js",
+    "watch_js": "chokidar js.js -c 'npm run lint_js'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chokidar-cli": "^1.2.0",
+    "eslint": "^3.9.1"
+  }
+}
