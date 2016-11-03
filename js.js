@@ -36,23 +36,29 @@ $(document).on('click', '.flipBox', function(event) {
 });
 
 // Flip the first one automatically
-$(document).on('scroll', function() {
-	// wait that the box appears inside screen
+(function() {
 	var $box = $('.flipBox:first');
 	var bottom = $box.prop('offsetTop') + $box.prop('offsetHeight');
-	var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-	var scrollBottom = scrollTop + document.documentElement.clientHeight;
+	var screenHeight = document.documentElement.clientHeight;
 	var offset = 100;
 
-	// remove after execution
-	if (flipBoxTurned) {
-		$(document).off('scroll', arguments.callee);
+	// wait that the box appears inside screen
+	function onscroll() {
+		var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+		var scrollBottom = scrollTop + screenHeight;
+
+		// remove after execution
+		if (flipBoxTurned) {
+			$(document).off('scroll', onscroll);
+		}
+		// not executed and it appears
+		else if (scrollBottom > bottom + offset) {
+			$('.flipBox:first').click();
+		}
 	}
-	// not executed and it appears
-	else if (scrollBottom > bottom + offset) {
-		$('.flipBox:first').click();
-	}
-});
+
+	$(document).on('scroll', onscroll);
+})();
 
 /**
  * Contact form.
