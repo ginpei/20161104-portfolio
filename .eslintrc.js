@@ -112,7 +112,7 @@ module.exports = {
 		"no-alert": "error",
 		"no-array-constructor": "error",
 		"no-bitwise": "error",
-		"no-caller": "error",
+		"no-caller": "off",
 		"no-catch-shadow": "error",
 		"no-confusing-arrow": "error",
 		"no-continue": "error",
