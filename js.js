@@ -144,3 +144,22 @@ function enableContactForm($form, enabled) {
 
 	console.log(`\n\n\n\n\n\n\n%c\n\n\n\n\n${message}`, style);
 })();
+
+/**
+ * Catch konami code.
+ */
+(function() {
+	var keys = [];
+	var code = '38,38,40,40,37,39,37,39,66,65';
+	$(document).on('keydown', function(event) {
+		keys.push(event.keyCode);
+		var lastKeys = keys.slice(-10);
+		if (lastKeys.toString() === code) {
+			run();
+		}
+	});
+
+	function run() {
+		console.log('!');
+	}
+})();
