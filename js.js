@@ -120,3 +120,27 @@ function enableContactForm($form, enabled) {
 	var $controls = $form.find('input, textarea, button');
 	$controls.prop('disabled', !enabled);
 }
+
+/**
+ * Show funny message for developer.
+ */
+(function() {
+	let style = `
+		background-image: url("${location.href}image/myface.jpg");
+		background-size: 200px 200px;
+		background-repeat: no-repeat;
+		color: #f00;
+		font-size: 10px;
+		line-height: 10px;
+		padding: 100px 200px;
+	`;
+	let message = `
+  (・Θ・)
+
+ __/|________________________________
+/                                     \\
+|  Hi! I'm waiting for your contact!!  |
+\\_____________________________________/`;
+
+	console.log(`\n\n\n\n\n\n\n%c\n\n\n\n\n${message}`, style);
+})();
