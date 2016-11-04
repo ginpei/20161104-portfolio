@@ -286,6 +286,141 @@ figcaption {
 }
 
 /**
+ * Magical
+ */
+.magical {
+	background-color: #000;
+	display: none;
+	left: 0;
+	height: 100%;
+	opacity: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+.magical.active {
+	animation: magical-appearance 1s forwards;
+	display: block;
+	/* opacity: 1; */
+}
+.magical-circle-wrapper {
+	height: 90vw;
+	margin: auto;
+	width: 90vw;
+}
+.magical.active .magical-circle-wrapper {
+	animation: magical-circle-appearance 1s ease 1s both;
+}
+.magical-circle {
+	animation: magical-circle-rotate 30s infinite linear;
+	background-image: url("image/circle.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	width: 100%;
+}
+.magical-crystal {
+	animation: magical-crystal-fade-in 3s ease 1s both;
+	height: 200px;
+	margin: auto;
+	width: 50px;
+}
+.magical-crystal-group {
+	animation: magical-crystal-rotate 10s ease-in infinite;
+	height: 100%;
+	position: relative;
+	top: 20px;
+	transform: perspective(1000px) rotateY(0deg);
+	transform-style: preserve-3d;
+	width: 100%;
+}
+.magical-crystal-side {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	transform-style: preserve-3d;
+	width: 100%;
+}
+.magical-crystal-side-1 {
+	transform: rotateY(  0deg) translateZ(25px);
+}
+.magical-crystal-side-2 {
+	transform: rotateY( 90deg) translateZ(25px);
+}
+.magical-crystal-side-3 {
+	transform: rotateY(180deg) translateZ(25px);
+}
+.magical-crystal-side-4 {
+	transform: rotateY(270deg) translateZ(25px);
+}
+.magical-crystal-surface {
+	position: absolute;
+}
+.magical-crystal-top {
+	height: 35.355px;
+	left: 0;
+	position: absolute;
+	top: 10%;
+	transform: rotateZ(180deg) rotateX(-45deg);
+	transform-origin: 50% 0;
+	width: 100%;
+}
+.magical-crystal-middle {
+	background-color: rgba(153, 204, 255, 0.3);
+	border: 1px solid rgba(153, 204, 255, 0.7);
+	box-sizing: border-box;
+	height: 80%;
+	left: 0;
+	position: absolute;
+	top: 10%;
+	width: 100%;
+}
+.magical-crystal-bottom {
+	height: 35.355px;
+	left: 0;
+	position: absolute;
+	top: 90%;
+	transform: rotateX(-45deg);
+	transform-origin: 50% 0;
+	width: 100%;
+}
+.magical-cover {
+	background-color: #fff;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+.magical.active .magical-cover {
+	animation: magical-appearance 3s linear 5s both;
+}
+@keyframes magical-crystal-fade-in {
+	  0% { opacity: 0; transform: translateY(50px); }
+	 30% { opacity: 0; transform: translateY(50px); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes magical-crystal-rotate {
+	  0% { transform: rotateX(-10deg) rotateY(  0deg); }
+	100% { transform: rotateX(-10deg) rotateY(36000deg); }
+}
+@keyframes magical-appearance {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@keyframes magical-circle-appearance {
+	  0% { opacity: 0; transform: scale(0); }
+	100% { opacity: 1; transform: scale(1); }
+}
+@keyframes magical-circle-rotate {
+	  0% { transform: rotateX(80deg) rotateZ(  0deg); }
+	100% { transform: rotateX(80deg) rotateZ(360deg); }
+}
+
+/**
  * Misc
  */
 .unmarkedList {
@@ -296,6 +431,9 @@ figcaption {
 	display: inline-block;
 	height: 0.8em;
 	width: 0.8em;
+}
+.hidden {
+	display: none;
 }
 
 @keyframes g-header-rotate {

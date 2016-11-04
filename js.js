@@ -160,10 +160,14 @@ function enableContactForm($form, enabled) {
 	});
 
 	function run() {
-		var length = 10 + Math.floor(Math.random() * 20);
-		for (var i=0; i<length; i++) {
-			drop();
-		}
+		$('.magical').addClass('active');
+		setTimeout(function() {
+			$('.magical').removeClass('active');
+			var length = 10 + Math.floor(Math.random() * 20);
+			for (var i=0; i<length; i++) {
+				drop();
+			}
+		}, 10000);
 	}
 
 	function drop() {
