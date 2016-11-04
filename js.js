@@ -160,6 +160,43 @@ function enableContactForm($form, enabled) {
 	});
 
 	function run() {
-		console.log('!');
+		var length = 10 + Math.floor(Math.random() * 20);
+		for (var i=0; i<length; i++) {
+			drop();
+		}
+	}
+
+	function drop() {
+		var size = 50;
+		var $el = createDrop(size);
+		$el.css({
+			top: -size - $('html').prop('clientHeight') * Math.random(),
+			left: -size / 2 + $('html').prop('clientWidth') * Math.random(),
+		});
+		$el.appendTo('body');
+
+		setTimeout(function() {
+			var dist = $('html').prop('clientHeight') * (2 + Math.random());
+			$el.css({ transform: 'translateY(' + dist + 'px)' });
+			$el.one('transitionend', function(event) {
+				$el.remove();
+			});
+		}, 1000 * Math.random());
+	}
+
+	function createDrop(size) {
+		var $el = $('<div>');
+		$el.text('💩');
+		$el.css({
+			fontSize: size,
+			height: size,
+			lineHeight: size + 'px',
+			position: 'fixed',
+			textAlign: 'center',
+			transition: 'transform 2s ease-in',
+			width: size,
+			zIndex: 2,
+		});
+		return $el;
 	}
 })();
